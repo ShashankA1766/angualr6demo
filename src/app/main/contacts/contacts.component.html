@@ -1,0 +1,25 @@
+<app-header></app-header>
+<p *ngIf="!listContacts">
+  <em>Loading...</em>
+</p>
+
+<table class='table' *ngIf="listContacts">
+  <thead>
+    <tr>
+      <th>Email</th>
+      <th>Phone number</th>
+      <th>Customer numner</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let contact of listContacts">
+      <td>{{ contact.contactEmail }}</td>
+      <td>{{ contact.phoneExt }} {{ contact.primaryPhone}}</td>
+      <td>{{ contact.customerNumber }}</td>
+      <td>
+        Actions here
+      </td>
+    </tr>
+  </tbody>
+</table>

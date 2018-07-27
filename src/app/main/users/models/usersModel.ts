@@ -1,0 +1,31 @@
+export interface usersModel {
+    name: string;
+    userRoleStr: string;
+    roleId: number;
+    userId: number;
+    userName: string;
+    firstName: string;
+    lastName: string;
+    password: string;
+    email: string;
+    token?: any;
+    isVerified: boolean;
+    verificationToken?: any;
+    verificationTokenCreatedDate?: any;
+    dob?: any;
+    gender?: any;
+    countryCode?: any;
+    phoneNumber?: any;
+    userType?: any;
+    userImage: string;
+    userIdentityType?: any;
+    socialIdentityToken?: any;
+    userCulture?: any;
+    organizationID: number;
+    isActive: boolean;
+    createdBy: number;
+    createdDate: Date;
+    updatedBy?: number;
+    updatedDate?: Date;
+    loggedInUserId: number;
+}
