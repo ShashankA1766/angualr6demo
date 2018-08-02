@@ -5,3 +5,17 @@
 @import "/assets/css/perfect-scrollbar.min.css";
 @import "/assets/css/prism.min.css";
 @import "/assets/css/chartist.min.css";
+
+body{
+    margin: 0px;
+    padding: 0px;
+}
+
+.ng-bar {
+    background: #ff4e4e !important;
+}
+.ng-meteor { box-shadow:  #ff4e4e 0px 0px 10px, #ff4e4e 0px 0px 5px  !important;}
+.ng-spinner-icon {
+    border-top-color: #ff4e4e !important;
+    border-left-color: #ff4e4e !important;
+}
