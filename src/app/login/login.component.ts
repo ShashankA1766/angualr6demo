@@ -37,7 +37,8 @@ export class LoginComponent implements OnInit {
     var output = this.loginService.login(this.username, this.pwd).subscribe(
       data => {
         debugger;
-        console.log(data);if(data.userId != 0){
+        console.log(data);
+        if(data.userId != 0){
         this.toastr.success('Login Successfull!', 'Success');
         this.router.navigate(['/main/dashboard']);
         }else{

@@ -16,6 +16,7 @@ import { LoginService } from './login/login.services';
 import { AuthenticationService } from './core/auth.service';
 import { ContactService } from './main/contacts/contacts.service';
 import { UsersService } from './main/users/users.service';
+import { RegisterService } from './register/register.services';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,6 @@ import { UsersService } from './main/users/users.service';
     AppRoutingModule,
     HttpModule,
     ToastrModule.forRoot(),
-    HttpClientModule,
     NgProgressModule.forRoot(),
     NgProgressHttpModule,
     NgProgressRouterModule
@@ -39,7 +39,8 @@ import { UsersService } from './main/users/users.service';
     LoginService,
     AuthenticationService,
     ContactService,
-    UsersService
+    UsersService,
+    RegisterService
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

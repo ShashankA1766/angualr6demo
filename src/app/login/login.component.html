@@ -22,7 +22,7 @@
             <label for="password">Password</label>
             <input type="password" name="password" #password="ngModel" required class="form-control custom_form" [(ngModel)]="model.password"
               placeholder="Password" />
-            <div *ngIf="(f.submitted||email.touched) && !email.valid" class="help-block">
+            <div *ngIf="(f.submitted||password.touched) && !password.valid" class="help-block">
               Password Is required
             </div>
           </div>
