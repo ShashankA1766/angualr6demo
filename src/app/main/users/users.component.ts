@@ -8,7 +8,7 @@ import { usersModel } from './models/Usersmodel';
   selector: 'app-users',
   templateUrl: './users.component.html',
   styleUrls: ['./users.component.css'],
-  encapsulation: ViewEncapsulation.Native
+  encapsulation: ViewEncapsulation.None
 })
 export class UsersComponent implements OnInit {
   listUsers: usersModel[];

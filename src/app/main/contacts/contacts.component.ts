@@ -8,7 +8,7 @@ import { contactsModel } from './models/contactsModel';
   selector: 'app-contacts',
   templateUrl: './contacts.component.html',
   styleUrls: ['./contacts.component.css'],
-  encapsulation: ViewEncapsulation.Native
+  encapsulation: ViewEncapsulation.None
 })
 
 export class ContactsComponent implements OnInit {

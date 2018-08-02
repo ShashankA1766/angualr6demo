@@ -11,7 +11,7 @@ import { LoginService } from './login.services';
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
-  encapsulation: ViewEncapsulation.Native
+  encapsulation: ViewEncapsulation.None
 })
 export class LoginComponent implements OnInit {
   model: any = {};
@@ -36,8 +36,8 @@ export class LoginComponent implements OnInit {
     this.pwd = this.model.password;
     var output = this.loginService.login(this.username, this.pwd).subscribe(
       data => {
-        console.log(data);
-        if(data.userId != 0){
+        debugger;
+        console.log(data);if(data.userId != 0){
         this.toastr.success('Login Successfull!', 'Success');
         this.router.navigate(['/main/dashboard']);
         }else{

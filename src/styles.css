@@ -1,1 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
+@import "/assets/fonts/feather/style.min.css";
+@import "/assets/fonts/simple-line-icons/style.css";
+@import "/assets/fonts/font-awesome/css/font-awesome.min.css";
+@import "/assets/css/perfect-scrollbar.min.css";
+@import "/assets/css/prism.min.css";
+@import "/assets/css/chartist.min.css";
