@@ -23,20 +23,11 @@ export class RegisterService {
             .pipe(map((res: any) => {
                 // login successful if there's a jwt token in the response
                 debugger;
-                console.log(res);
-                if(password==confirmpassword){
-                if (res && res.stuscode != 200) {
+                console.log(res);               
+                if(res && res.stuscode != 200) {
                     // store username and jwt token in local storage to keep user logged in between page refreshes
                     
-                }
-            else{
-                //Invalid email id.
-                
-            }
-            }
-                else{
-                    //password and confirm password does not match.
-                }
+                }     
                 return res;
             }));
     }

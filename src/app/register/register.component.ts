@@ -27,6 +27,7 @@ export class RegisterComponent implements OnInit {
   roleId: any;
   returnUrl: string;
   constructor(private RegisterService: RegisterService,
+    private authenticationService: AuthenticationService,
     private loginservice: LoginService,
     private toastr: ToastrService,
     private route: ActivatedRoute,
@@ -45,46 +46,43 @@ export class RegisterComponent implements OnInit {
     this.organizationId = 0;
     this.roleId = 0;
 
-    var output = this.RegisterService.register(this.username,
-      this.id,
-      this.email,
-      this.password,
-      this.confirmpassword,
-      this.name,
-      this.organizationId,
-      this.roleId).subscribe(
-        data => {
-          debugger;
-          console.log(data);
-          if (data.Email == null) {
-            this.toastr.success('Registration Successfull.Logging you in!', 'Success');
-            this.login();
+    var output = this.RegisterService.register(this.username, this.id, this.email, this.password, this.confirmpassword, this.name, this.organizationId, this.roleId)
+      .subscribe(data => {
+        debugger;
+        if (data!=null && data !='useralreadyExist') {         
+                  
+          this.toastr.success('Registration Successfull.Logging you in!', 'Success');
+          this.login(this.username, this.password);
 
-          } else {
-            this.toastr.error('Invalid EmailId! Please enter a valid Email Id!', 'Error');
           }
-        },
+        if(data=='useralreadyExist') {
+          this.toastr.warning('User already Exist!', 'Error');
+        }
+        
+      },
         error => {
-          // this.error = error.statusText + ". Please check your credentials";
+          this.error = error.statusText + ". Please check your credentials";
           this.loading = false;
           this.toastr.error('something went wrong try again after sometime! ', 'Error');
           console.log("Error Occured", error);
         });
 
   }
-  login() {
-    var output = this.loginservice.login(this.username, this.password).subscribe(
-      data => {
-        debugger;
-        console.log(data);
-        if (data.userId != 0) {
-          this.toastr.success('Login Successfull!', 'Success');
-          this.router.navigate(['/main/dashboard']);
-        } else {
-          this.toastr.error('Invalid Credentials! Please check your credentials!', 'Error');
-        }
-      }
-    );    
+
+  login(username, password) {
+    this.loginservice.login(username, password)
+      .subscribe(
+        data => {
+          debugger;
+          console.log(data);
+          if (data.userId != 0) {
+            this.toastr.success('Login Successfull!', 'Success');
+            this.router.navigate(['/main/dashboard']);
+          } else {
+            this.toastr.error('Invalid Credentials!', 'Error');
+          }
+        });
+
   }
 }
 
