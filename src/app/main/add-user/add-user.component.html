@@ -1,0 +1,80 @@
+<div>
+    <div class="addUser">
+      <div class="modal-header">
+        <h4 class="modal-title">Sign Up</h4>
+      </div>
+      <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm">
+        <div class="row m-b-30">
+         
+          <div class="col-sm-12 m-b-10">
+            <div class="form-group">
+              <label for="username">Username:</label>
+              <input type="text" name="username" #username="ngModel" required class="form-control custom_form" [(ngModel)]="model.username"
+                placeholder="Username" />
+
+                <div *ngIf="(f.submitted||username.touched) && !username.valid" class="help-block">
+                    Username Is required
+                </div>
+            </div>
+          </div>
+
+          <div class="col-sm-12">
+              <div class="form-group m-b-30" [ngClass]="{ 'has-error':f.submitted && !email.valid }">
+                <label for="email">Email:</label>
+                  <input type="text" [(ngModel)]="model.email" email #email="ngModel" id="email" name="email" required class="form-control custom_form"
+                  placeholder="email" />
+                  <div *ngIf="(f.submitted||email.touched) && !email.valid" class="help-block">
+                      Email Is required
+                  </div>
+              </div>
+            </div>
+
+            <div class="col-sm-12 m-b-10">
+                <div class="form-group" >
+                  <label for="firstName">FirstName:</label>
+                  <input type="text" name="firstName" #firstName="ngModel"   required class="form-control custom_form" [(ngModel)]="model.firstName"
+                    placeholder="FirstName" />
+                    <div *ngIf="(f.submitted||firstName.touched) && !firstName.valid" class="help-block">
+                        FirstName Is required
+                    </div>
+                </div>
+              </div>
+
+              <div class="col-sm-12 m-b-10">
+                  <div class="form-group" >
+                    <label for="username">LastName:</label>
+                    <input type="text" name="lastName" #lastName="ngModel"  required class="form-control custom_form" [(ngModel)]="model.lastName"
+                      placeholder="lastName" />
+                      <div *ngIf="(f.submitted||lastName.touched) && !lastName.valid" class="help-block">
+                          LastName Is required
+                      </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-12 m-b-10">
+                    <div class="form-group" >
+                      <label for="userRoleStr">UserRole:</label>
+                        <select name="userRoleStr" #userRoleStr="ngModel"  class="form-control custom_form" [(ngModel)]="model.userRoleStr">
+                          <option>Super Admin</option>
+                          <option>Sales Admin</option>
+                          <option>Team Admin</option>
+                          <option>Sales Manager</option>
+                          <option>Sales Person</option>
+                        </select>
+                        <div *ngIf="(f.submitted||userRoleStr.touched) && !userRoleStr.valid" class="help-block">
+                            UserRole Is required
+                        </div>
+                    </div>
+                  </div>
+          <div class="col-sm-12">
+            <button [disabled]="loading" class="btn btn-outline-secondary btn-lg">Create User</button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12">
+            <div *ngIf="error" class="alert alert-danger clear">{{error}}</div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>

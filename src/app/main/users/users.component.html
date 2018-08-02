@@ -4,6 +4,11 @@
     <em>Loading...</em>
   </p>
 
+  <div>
+      <button (click)="showAddUserDialogbox()" style="float: right">Add New User</button>
+  </div>
+ 
+
   <table class='table table-striped' *ngIf="listUsers">
     <thead class="thead-default">
       <tr>
@@ -21,9 +26,13 @@
         <td>{{ user.email }}</td>
         <td>{{ user.userRoleStr }}</td>
         <td>
-          Actions here
+          <button id="editUser">Edit</button>
         </td>
       </tr>
     </tbody>
   </table>
 </div>
+
+<app-dialog [(visible)]="showAddUserDialog">
+    <app-add-user></app-add-user>
+</app-dialog>
