@@ -20,6 +20,7 @@ import { RegisterService } from './register/register.services';
 import { ChartModule, HIGHCHARTS_MODULES } from 'angular-highcharts';
 import stock from 'highcharts/modules/stock.src';
 import more from 'highcharts/highcharts-more.src';
+import { AdddContactService } from './main/addcontact/addcontact.service';
 
 export function highchartsModules() {
   // apply Highcharts Modules to this array
@@ -28,7 +29,7 @@ export function highchartsModules() {
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent    
   ],
   imports: [
     BrowserModule,
@@ -50,6 +51,7 @@ export function highchartsModules() {
     ContactService,
     UsersService,
     RegisterService,
+    AdddContactService,
     { provide: HIGHCHARTS_MODULES, useFactory: highchartsModules } // add as factory to your providers
     ],
   bootstrap: [AppComponent],

@@ -13,6 +13,7 @@ import { ContactsModule } from './contacts/contacts.module';
 import { UsersModule } from './users/users.module';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { AddUserComponent } from './add-user/add-user.component';
+import { AddContactModule } from './addcontact/addcontact.module';
 
 @NgModule({
   imports: [
@@ -23,7 +24,8 @@ import { AddUserComponent } from './add-user/add-user.component';
     HeaderModule,
     ContactsModule,
     UsersModule,
-    DashboardModule
+    DashboardModule,
+    AddContactModule
   ],
   declarations: [
     MainComponent,

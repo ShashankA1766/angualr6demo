@@ -4,13 +4,19 @@
     <p *ngIf="!listContacts">
       <em>Loading...</em>
     </p>
-
+    
+    <div>
+      <a (click)="showDialogBox()" class="btn btn-raised gradient-mint py-2 px-4 white mr-2 pull-right">
+        <i class="ft-book"></i>
+        <span data-i18n="" class="menu-title">Add New Contact</span>
+      </a>
+    </div>
     <table class='table table-striped' *ngIf="listContacts">
       <thead class="thead-default">
         <tr>
           <th>Email</th>
           <th>Phone number</th>
-          <th>Customer numner</th>
+          <th>Customer number</th>
           <th>Action</th>
         </tr>
       </thead>
@@ -27,3 +33,6 @@
     </table>
   </div>
 </div>
+<app-dialog [(visible)]="showAddContactDialogbox">  
+    <app-addcontact></app-addcontact>
+</app-dialog>

@@ -12,21 +12,29 @@ import { contactsModel } from './models/contactsModel';
 })
 
 export class ContactsComponent implements OnInit {
+  model: any = {};
+  showAddContactDialogbox = false;
   listContacts: contactsModel[];
+
   constructor(private contactService: ContactService,
     private toastr: ToastrService,
     private route: ActivatedRoute,
     private router: Router) {
 
-     }
+  }
 
-     ngOnInit() {
-      this.getContactsList();
-    }
-  
-    getContactsList= function () {
-      this.contactService.fetchContacts().subscribe((data: contactsModel[]) => {
-        this.listContacts = data;
-      });
-    }
+  ngOnInit() {
+    this.getContactsList();
+  }
+
+  getContactsList = function () {
+    this.contactService.fetchContacts().subscribe((data: contactsModel[]) => {
+      this.listContacts = data;
+    });
+  }
+  showDialogBox = function () {
+    this.showAddContactDialogbox = !this.showAddContactDialogbox
+  }
+
 }
+
