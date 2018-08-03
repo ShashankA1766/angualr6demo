@@ -12,7 +12,7 @@
               placeholder="email" /> -->
               <input type="text" [(ngModel)]="model.username" #email="ngModel" id="username" name="username" required class="form-control custom_form"
               placeholder="username" />
-              <div *ngIf="(f.submitted||email.touched) && !email.valid" class="help-block">
+              <div *ngIf="(f.submitted||email.touched) && !email.valid" class="help-block text-warning">
                 Username Is required
               </div>
           </div>
@@ -22,7 +22,7 @@
             <label for="password">Password</label>
             <input type="password" name="password" #password="ngModel" required class="form-control custom_form" [(ngModel)]="model.password"
               placeholder="Password" />
-            <div *ngIf="(f.submitted||password.touched) && !password.valid" class="help-block">
+            <div *ngIf="(f.submitted||password.touched) && !password.valid" class="help-block text-warning">
               Password Is required
             </div>
           </div>

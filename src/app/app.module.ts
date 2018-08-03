@@ -17,6 +17,14 @@ import { AuthenticationService } from './core/auth.service';
 import { ContactService } from './main/contacts/contacts.service';
 import { UsersService } from './main/users/users.service';
 import { RegisterService } from './register/register.services';
+import { ChartModule, HIGHCHARTS_MODULES } from 'angular-highcharts';
+import stock from 'highcharts/modules/stock.src';
+import more from 'highcharts/highcharts-more.src';
+
+export function highchartsModules() {
+  // apply Highcharts Modules to this array
+  return [stock, more];
+}
 
 @NgModule({
   declarations: [
@@ -33,15 +41,17 @@ import { RegisterService } from './register/register.services';
     ToastrModule.forRoot(),
     NgProgressModule.forRoot(),
     NgProgressHttpModule,
-    NgProgressRouterModule
+    NgProgressRouterModule,
+    ChartModule
   ],
   providers: [
     LoginService,
     AuthenticationService,
     ContactService,
     UsersService,
-    RegisterService
-  ],
+    RegisterService,
+    { provide: HIGHCHARTS_MODULES, useFactory: highchartsModules } // add as factory to your providers
+    ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

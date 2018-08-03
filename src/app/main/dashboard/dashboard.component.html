@@ -1,1 +1,37 @@
 <app-header></app-header>
+
+<div class="main-panel">
+    <div class="main-content">
+        <div class="row">
+            <div class="col-sm-12 bg-danger">
+                <div class="card card-outline-danger card-inverse text-center">
+                    <div class="card-block">
+                        <button (click)="add()" class="btn btn-raised gradient-mint py-2 px-4 white mr-2">Add Point!</button>
+                        <button (click)="addSeries()" class="btn btn-raised gradient-crystal-clear py-2 px-4 white mr-2">Add Serise!</button>
+                    </div>
+                    <div class="card-body">
+                        <div [chart]="chart"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 bg-primary">
+                <div class="card card-outline-primary card-inverse text-center">
+                    <div class="card-body">
+                        <div [chart]="barchart"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+                <div class="col-sm-12 bg-warning">
+                    <div class="card  card-outline-warning card-inverse text-center">
+                        <div class="card-body">
+                            <div [chart]="columnchart"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>

@@ -1,38 +1,41 @@
 <app-header></app-header>
 <div class="main-panel">
-  <p *ngIf="!listUsers">
-    <em>Loading...</em>
-  </p>
+  <div class="main-content">
+    <div class="">
+      <p *ngIf="!listUsers">
+        <em>Loading...</em>
+      </p>
 
-  <div>
-      <button (click)="showAddUserDialogbox()" style="float: right">Add New User</button>
+      <div>
+        <button (click)="showAddUserDialogbox()" style="float: right" class="btn btn-raised gradient-mint py-2 px-4 white mr-2">Add New User</button>
+      </div>
+
+
+      <table class='table table-striped' *ngIf="listUsers">
+        <thead class="thead-default">
+          <tr>
+            <th>User Name</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>User Role</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of listUsers" scope="row">
+            <td>{{ user.userName }}</td>
+            <td>{{ user.name }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.userRoleStr }}</td>
+            <td>
+              <button id="editUser">Edit</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
- 
-
-  <table class='table table-striped' *ngIf="listUsers">
-    <thead class="thead-default">
-      <tr>
-        <th>User Name</th>
-        <th>Name</th>
-        <th>Email</th>
-        <th>User Role</th>
-        <th>Action</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let user of listUsers" scope="row">
-        <td>{{ user.userName }}</td>
-        <td>{{ user.name }}</td>
-        <td>{{ user.email }}</td>
-        <td>{{ user.userRoleStr }}</td>
-        <td>
-          <button id="editUser">Edit</button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
 </div>
-
 <app-dialog [(visible)]="showAddUserDialog">
-    <app-add-user></app-add-user>
+  <app-add-user></app-add-user>
 </app-dialog>
